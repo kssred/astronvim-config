@@ -2,6 +2,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    ---@type CatppuccinOptions
     opts = {
       priority = 1000,
       transparent_background = true,
@@ -10,11 +11,26 @@ return {
       },
       no_bold = true,
       integrations = {
+        aerial = true,
+        alpha = true,
         cmp = true,
+        dap = true,
+        dap_ui = true,
         gitsigns = true,
-        nvimtree = true,
-        treesitter = true,
+        illuminate = true,
+        indent_blankline = true,
+        markdown = true,
+        mason = true,
+        neotree = true,
         notify = true,
+        semantic_tokens = true,
+        symbols_outline = true,
+        telescope = true,
+        treesitter = true,
+        ts_rainbow = false,
+        ufo = true,
+        which_key = true,
+        window_picker = true,
         native_lsp = {
           enabled = true,
           virtual_text = {
@@ -33,6 +49,16 @@ return {
             background = true,
           },
         },
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    optional = true,
+    opts = {
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
       },
     },
   },
