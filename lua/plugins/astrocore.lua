@@ -1,9 +1,7 @@
--- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
--- Configuration documentation can be found with `:h astrocore`
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
+
   ---@type AstroCoreOpts
   opts = {
     -- Configure core features of AstroNvim
@@ -33,8 +31,9 @@ return {
         [".*/etc/foo/.*"] = "fooscript",
       },
     },
+
     -- vim options can be configured here
-    options = {
+ options = {
       opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
@@ -46,13 +45,13 @@ return {
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
+        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
+        -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
-    -- Mappings can be configured through AstroCore as well.
     mappings = {
       -- first key is the mode
       n = {
-        -- navigate buffer tabs
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
@@ -67,9 +66,6 @@ return {
         },
 
         ["<Leader>b"] = { desc = "Buffers" },
-
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
       },
     },
   },
